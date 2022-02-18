@@ -21,7 +21,9 @@ export default function Home() {
   }
 
   const handleSelectTip = e => {
+    console.log(e.target.innerHTML.replace(/[^0-9]/g, ""))
     setSelectTip(e.target.innerHTML.replace(/[^0-9]/g, ""))
+    console.log({selectTip})
   }
   return (
     <div>

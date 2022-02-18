@@ -4,7 +4,7 @@ import Button from "./Button";
 import CustomInput from "./CustomInp";
 
 
-function Select ({selectTip, handleSelectTip}) {
+function Select ({handleSelectTip}) {
   return (
     <SelectSection>
       <SelectTitle>Select Tip %</SelectTitle>
