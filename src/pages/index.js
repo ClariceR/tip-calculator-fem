@@ -1,5 +1,45 @@
-import React from "react"
+import React, { useState } from "react"
+import styled from "styled-components"
+import Card from '../components/Card'
+import Header from "../components/Header"
+
+import "../styles/index.css"
 
 export default function Home() {
-  return <div>Hello world!</div>
+  const [billValue, setBillValue] = useState("")
+  const [numPeople, setNumPeople] = useState("")
+  const [selectTip, setSelectTip] = useState("")
+
+  const handleBillValueChange = e => {
+    console.log(e.target.value)
+    setBillValue(e.target.value)
+  }
+
+  const handlenumPeopleChange = e => {
+    console.log(e.target.value)
+    setNumPeople(e.target.value)
+  }
+
+  const handleSelectTip = e => {
+    setSelectTip(e.target.innerHTML.replace(/[^0-9]/g, ""))
+  }
+  return (
+    <div>
+      <Main>
+        <Header />
+        <Card
+          billValue={billValue}
+          handleBillValueChange={handleBillValueChange}
+          numPeople={numPeople}
+          handlenumPeopleChange={handlenumPeopleChange}
+          handleSelectTip={handleSelectTip}
+        />
+      </Main>
+    </div>
+  )
 }
+
+const Main = styled.div`
+  display: grid;
+  justify-items: center;
+`
