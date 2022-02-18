@@ -2,6 +2,20 @@ import React from "react";
 import styled from "styled-components";
 import Description from "./Description";
 
+const Result = ({tipAmount}) => (
+  <ResultSection>
+    <ResultCard>
+      <ResultDetail>
+        <Description title="Tip Amount" value={tipAmount} />
+        <Description title="Total" value="$32.79" />
+      </ResultDetail>
+      <ResetButton>Reset</ResetButton>
+    </ResultCard>
+  </ResultSection>
+)
+
+export default Result
+
 const ResultSection = styled.div`
   padding-top: 32px;
   display: grid;
@@ -48,17 +62,3 @@ const ResetButton = styled.button`
     margin-top: 160px;
   }
 `;
-
-const Result = (props) => (
-  <ResultSection>
-    <ResultCard>
-      <ResultDetail>
-        <Description title="Tip Amount" value="$4.27" />
-        <Description title="Total" value="$32.79" />
-      </ResultDetail>
-      <ResetButton>Reset</ResetButton>
-    </ResultCard>
-  </ResultSection>
-);
-
-export default Result

@@ -11,6 +11,7 @@ const Card = ({
   handleNumPeopleChange,
   selectTip,
   handleSelectTip,
+  tipAmount
 }) => (
   <CardBkg>
     <CardGroup>
@@ -29,7 +30,7 @@ const Card = ({
       />
     </CardGroup>
     <CardGroup>
-      <Result />
+      <Result tipAmount={tipAmount}/>
     </CardGroup>
   </CardBkg>
 )
