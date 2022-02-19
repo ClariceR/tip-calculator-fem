@@ -10,32 +10,39 @@ export default function Home() {
   const [numPeople, setNumPeople] = useState("")
   const [selectTip, setSelectTip] = useState("")
   const [tipAmount, setTipAmount] = useState(0)
+  const [total, setTotal] = useState(0)
 
   const handleBillValueChange = e => {
     console.log(e.target.value)
-    setBillValue(e.target.value)
+    setBillValue(parseFloat(e.target.value))
   }
 
   const handleNumPeopleChange = e => {
     console.log(e.target.value)
-    setNumPeople(e.target.value)
+    setNumPeople(parseInt(e.target.value))
     console.log(numPeople)
   }
 
   const handleSelectTip = e => {
     console.log(e.target.innerHTML.replace(/[^0-9]/g, ""))
-    setSelectTip(e.target.innerHTML.replace(/[^0-9]/g, ""))
+    setSelectTip(parseFloat(e.target.innerHTML.replace(/[^0-9]/g, "")))
     console.log({ selectTip })
   }
 
   const calculateTipAmount = () => {
-    setTipAmount((parseInt(billValue) * (parseInt(selectTip) / 100)) / parseInt(numPeople))
+    setTipAmount((billValue * (selectTip / 100)) / numPeople)
+  }
+
+  const calculateTotal = () => {
+    console.log("calculating total...")
+    setTotal(billValue / numPeople + tipAmount)
+    console.log("total", total)
   }
 
   useEffect(() => {
     calculateTipAmount()
-    console.log("useEffecting")
-    console.log(tipAmount)
+    calculateTotal()
+    console.log("useEffecting tip amount")
   })
 
   return (
@@ -49,6 +56,7 @@ export default function Home() {
           handleNumPeopleChange={handleNumPeopleChange}
           handleSelectTip={handleSelectTip}
           tipAmount={tipAmount}
+          total={total}
         />
       </Main>
     </div>

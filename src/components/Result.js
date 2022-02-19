@@ -2,12 +2,12 @@ import React from "react";
 import styled from "styled-components";
 import Description from "./Description";
 
-const Result = ({tipAmount}) => (
+const Result = ({tipAmount, total}) => (
   <ResultSection>
     <ResultCard>
       <ResultDetail>
         <Description title="Tip Amount" value={tipAmount} />
-        <Description title="Total" value="$32.79" />
+        <Description title="Total" value={total} />
       </ResultDetail>
       <ResetButton>Reset</ResetButton>
     </ResultCard>
