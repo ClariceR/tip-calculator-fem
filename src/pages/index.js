@@ -13,20 +13,15 @@ export default function Home() {
   const [total, setTotal] = useState(0)
 
   const handleBillValueChange = e => {
-    console.log(e.target.value)
     setBillValue(parseFloat(e.target.value))
   }
 
   const handleNumPeopleChange = e => {
-    console.log(e.target.value)
     setNumPeople(parseInt(e.target.value))
-    console.log(numPeople)
   }
 
   const handleSelectTip = e => {
-    console.log(e.target.innerHTML.replace(/[^0-9]/g, ""))
     setSelectTip(parseFloat(e.target.innerHTML.replace(/[^0-9]/g, "")))
-    console.log({ selectTip })
   }
 
   const calculateTipAmount = () => {
@@ -34,15 +29,12 @@ export default function Home() {
   }
 
   const calculateTotal = () => {
-    console.log("calculating total...")
     setTotal(billValue / numPeople + tipAmount)
-    console.log("total", total)
   }
 
   useEffect(() => {
     calculateTipAmount()
     calculateTotal()
-    console.log("useEffecting tip amount")
   })
 
   return (

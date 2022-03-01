@@ -18,6 +18,8 @@ const SelectButton = styled.button`
 
   color: ${(props) => props.theme.color};
   background: ${(props) => props.theme.bkg};
+
+  
 `;
 
 SelectButton.defaultProps = {
