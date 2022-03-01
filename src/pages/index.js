@@ -33,8 +33,10 @@ export default function Home() {
   }
 
   useEffect(() => {
-    calculateTipAmount()
-    calculateTotal()
+    if (billValue > 0 && numPeople > 0) {
+      calculateTipAmount()
+      calculateTotal()
+    }
   })
 
   return (
